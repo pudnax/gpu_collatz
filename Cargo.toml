@@ -1,13 +1,3 @@
-[package]
-name = "wgpu_collatz"
-version = "0.1.0"
-authors = ["Alex Komissarov <k.a.komissar@gmail.com>"]
-edition = "2018"
+[workspace]
+members = ["wgpu-collatz", "ash-collatz"]
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-wgpu = "0.6.0"
-futures = "0.3.7"
-wgpu-subscriber = "0.1.0"
-bytemuck = "1.4.1"

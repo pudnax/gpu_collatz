@@ -20,12 +20,14 @@ async fn run() -> Result<(), Box<dyn std::error::Error>> {
 
 async fn execute_gpu(numbers: Vec<u32>) -> Result<Vec<u32>, Box<dyn std::error::Error>> {
     let instance = wgpu::Instance::new(wgpu::BackendBit::PRIMARY);
+
     let adapter = instance
         .request_adapter(&wgpu::RequestAdapterOptions::default())
         .await
         .ok_or_else::<Box<dyn std::error::Error>, _>(|| {
             String::from("Error requesting adapter.").into()
         })?;
+
     let (device, queue) = adapter
         .request_device(
             &wgpu::DeviceDescriptor {
