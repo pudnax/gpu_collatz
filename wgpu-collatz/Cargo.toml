@@ -1,5 +1,5 @@
 [package]
-name = "wgpu_collatz"
+name = "wgpu"
 version = "0.1.0"
 authors = ["Alex Komissarov <k.a.komissar@gmail.com>"]
 edition = "2018"
@@ -11,3 +11,4 @@ wgpu = "0.6.0"
 futures = "0.3.7"
 wgpu-subscriber = "0.1.0"
 bytemuck = "1.4.1"
+atty = "0.2.14"

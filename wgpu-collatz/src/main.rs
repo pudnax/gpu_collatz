@@ -2,7 +2,11 @@ use std::{convert::TryInto, str::FromStr};
 use wgpu::util::DeviceExt;
 
 async fn run() -> Result<(), Box<dyn std::error::Error>> {
-    let numbers = if std::env::args().len() <= 1 {
+    let numbers = if atty::isnt(atty::Stream::Stdin) {
+        let mut buf = Default::default();
+        std::io::stdin().read_line(&mut buf)?;
+        buf.trim().split(' ').map(|s| u32::from_str(&s)).collect()
+    } else if std::env::args().len() <= 1 {
         let default = vec![1, 2, 3, 4];
         println!("No numbers were provided, defauting to {:?}", default);
         Ok(default)
